@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE-Edge" />
+		<script src="http://d3js.org/d3.v2.js"></script>
+		<style type="text/css">
+			body{
+				background-color:#000;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<script type="text/javascript">
+			(function(root){
+				var docElement = window.document.documentElement,
+					pixelToNumber = function(pixel){
+						//Return number from pixel
+						var i;
+						if(typeof pixel === "String"){
+							i = pixel.indexOf("p");
+							if(i !== -1){
+								return Number(pixel.slice(0,i));
+							}
+						}
+						return pixel;
+					},
+					viewportWidth = docElement.clientWidth,
+					viewportHeight = docElement.clientHeight,
+					svgHeight = (viewportHeight / 4) * 2,
+					svgMarginTop = viewportHeight / 4;
+
+				var svg = d3.select("body").append("svg")
+						.attr("width",viewportWidth)
+						.attr("height",svgHeight)
+						.style("margin-top",svgMarginTop)
+						.style("background-color","#666");
+
+				var header = svg.append("g")
+								.attr("id","svgheader");
+				var body = svg.append("g")
+								.attr("id","svgbody");
+				var footer = svg.append("g")
+								.attr("id","svgfooter");
+
+				svg.append("circle")
+					.attr("cx",100)
+					.attr("cy",30)
+					.attr("r",50)
+					.attr("fill","#ccc")
+			})(window);
+		</script>
+	</body>
+</html>
