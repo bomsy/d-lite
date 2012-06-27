@@ -12,6 +12,10 @@
 	</head>
 	<body>
 		<script type="text/javascript">
+			var dl = new DigiLights({
+				displayText: "00:00:00",
+				ref:
+			});
 			(function(root){
 				var docElement = window.document.documentElement,
 					pixelToNumber = function(pixel){
@@ -37,11 +41,16 @@
 						.style("background-color","#666");
 
 				var header = svg.append("g")
-								.attr("id","svgheader");
+								.attr("id","svgheader")
+								.attr("transform",);
+
 				var body = svg.append("g")
-								.attr("id","svgbody");
+								.attr("id","svgbody")
+								.attr("transform",);
+
 				var footer = svg.append("g")
-								.attr("id","svgfooter");
+								.attr("id","svgfooter")
+								.attr("transform",)
 
 				svg.append("circle")
 					.attr("cx",100)
@@ -52,3 +61,6 @@
 		</script>
 	</body>
 </html>
+
+
+
