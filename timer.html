@@ -21,10 +21,15 @@
     <script src="d3digilights.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			var bulbs = new DigiLights({
-				text: "12345",
+				text: "00:00:00",
 				ref:"wtimer"
 			});
-            bulbs.on()
+            window.setTimeout(function(){
+               bulbs.setText("00:00:23");
+               bulbs.on();
+               console.log("booom")
+            },1000);
+            bulbs.on();
 		</script>
 	</body>
 </html>
