@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-	<head>
+    <head>
 		<meta http-equiv="X-UA-Compatible" content="IE-Edge" />
 		
 		<style type="text/css">
@@ -20,19 +20,20 @@
     <script src="http://d3js.org/d3.v2.js"></script>
     <script src="d3digilights.js" type="text/javascript"></script>
 		<script type="text/javascript">
+            var st = new Date();
 			var bulbs = new DigiLights({
-				text: "00:00:00",
-				ref:"wtimer"
+				text: st.getHours()+":"+st.getMinutes()+":"+st.getSeconds(),
+				ref: "wtimer",
+                size: 7,
+                color: '#00f',
+                align: DigiLights.align.HORIZONTAL
 			});
-            window.setTimeout(function(){
-               bulbs.setText("00:00:23");
+            window.setInterval(function(){
+                var ct = new Date(); 
+               bulbs.setText(ct.getHours()+":"+ct.getMinutes()+":"+ct.getSeconds());
                bulbs.on();
-               console.log("booom")
             },1000);
             bulbs.on();
 		</script>
 	</body>
 </html>
-
-
-
