@@ -1,7 +1,7 @@
-d3timer
+dLite
 =======
 
-timer using d3
+A small js library that simulates digital lighting.
 
 features
 ========
