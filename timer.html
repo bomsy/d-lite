@@ -17,22 +17,30 @@
 	</head>
 	<body>
     <div id="wtimer"></div>
-    <script src="http://d3js.org/d3.v2.js"></script>
+    <script src="d3/d3.js"></script>
     <script src="d3digilights.js" type="text/javascript"></script>
 		<script type="text/javascript">
-            var d  = new Date()
-            var lights = new DigiLights("wtimer");
-                lights.setText(d.getHours()+":"+d.getMinutes()+":"+d.getSeconds())
-                    .setSize(3)
-                    .setColor("#00f")
-                    .setAlignment(DigiLights.align.HORIZONTAL)
-                    .showBackground(true)
-                    //.on()
-                    .on(0, 1000, null,function(){
-                                var n = new Date();
-                                lights.setText(n.getHours()+":"+n.getMinutes()+":"+n.getSeconds());
-                            });
-                        
+            function generateRandomArrays(val){
+                var x,
+                    randArry = [];
+                for(x = 0; x < val; x++){
+                    randArry.push(Math.floor((Math.random()*100) + 1))
+                }
+                return randArry;
+            }
+            var waves = Dlite.waveforms.domain(1, 100),
+                defA = generateRandomArrays(50);
+            
+            var d = Dlite("wtimer");
+                d.setContent(waves(defA))
+                    .setSize(5)
+                    .setColor("#f00")
+                    .setAlignment(Dlite.align.HORIZONTAL)
+                    .showBackground(false)
+                    .show(null, 150, null, function(){
+                            var arr = generateRandomArrays(50);
+                            d.setContent(waves(arr));
+                    });
                        
 		</script>
 	</body>

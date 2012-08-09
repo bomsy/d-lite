@@ -1,7 +1,7 @@
-function DigiLights(ref) {
+function Dlite(ref) {
     'use strict';
-    if(!(this instanceof DigiLights)){
-        return new DigiLights();
+    if(!(this instanceof Dlite)){
+        return new Dlite(ref);
     }
     this.text = null;
     this.ref = null;
@@ -13,12 +13,45 @@ function DigiLights(ref) {
     this.showBg = null;
     this.init(ref);
 }
-DigiLights.version = "1.0.0";
-DigiLights.align = {
+
+Dlite.version = "1.0.0";
+
+Dlite.align = {
     VERTICAL: 0,
     HORIZONTAL: 1
 };
-DigiLights.characterMatrix = {
+
+Dlite.waveforms = {
+    domain: function(lower, upper){ 
+        var UPPERRANGE = 10,
+            LOWERRANGE = 0;
+            lower = lower;
+            upper = upper;          
+        return function(value){
+            var toString = Object.prototype.toString,
+                i = 0,
+                len,
+                out,
+                output = [],
+                PREFIX = "$";
+            if(toString.call(value) !== "[object Array]"){
+                throw Error("waveforms: value must be an array")
+            }
+            for(len=value.length; i<len; i+=1){                              
+                out = Math.round(LOWERRANGE + ((value[i] *(UPPERRANGE - LOWERRANGE))/(upper - lower))) - 1;
+                //keep within the limit
+                if(out < 0){
+                    out = 0;  
+                }else if(out > 9){
+                    out = 9;  
+                }
+                output.push(PREFIX + out);
+            }
+            return output;
+        }
+    }
+}
+Dlite.characterMatrix = {
     "0": {
         "x": 5,
         "y": 7,
@@ -149,12 +182,12 @@ DigiLights.characterMatrix = {
             1, 1, 1, 1, 1
         ]
     },
-    "blnkV": {
+    "_": {
         "x": 1,
         "y": 7,
         "matrix": [ 0, 0, 0, 0, 0, 0, 0 ]
     },
-    "blnkH":{
+    "_v":{
         "x": 5,
         "y": 1,
         "matrix": [ 0, 0, 0, 0, 0 ]
@@ -164,59 +197,59 @@ DigiLights.characterMatrix = {
         "y": 7,
         "matrix": [ 0, 0, 1, 0, 1, 0, 0 ]
     },
-    ".0":{
+    "$0":{
         "x":1,
         "y":10,
         "matrix":[0, 0, 0, 0, 0, 0, 0, 0, 0, 1]
     },
-     ".1":{
+     "$1":{
         "x":1,
         "y":10,
         "matrix":[0, 0, 0, 0, 0, 0, 0, 0, 1, 1]
     },
-     ".2":{
+     "$2":{
         "x":1,
         "y":10,
         "matrix":[0, 0, 0, 0, 0, 0, 0, 1, 1, 1]
     },
-     ".3":{
+     "$3":{
         "x":1,
         "y":10,
         "matrix":[0, 0, 0, 0, 0, 0, 1, 1, 1, 1]
     },
-     ".4":{
+     "$4":{
         "x":1,
         "y":10,
         "matrix":[0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
     },
-     ".5":{
+     "$5":{
         "x":1,
         "y":10,
         "matrix":[0, 0, 0, 0, 1, 1, 1, 1, 1, 1]
     },
-     ".6":{
+     "$6":{
         "x":1,
         "y":10,
         "matrix":[0, 0, 0, 1, 1, 1, 1, 1, 1, 1]
     },
-    ".7":{
+    "$7":{
         "x":1,
         "y":10,
         "matrix":[0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
     },
-    ".8":{
+    "$8":{
         "x":1,
         "y":10,
         "matrix":[0, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     },
-    ".9":{
+    "$9":{
         "x":1,
         "y":10,
         "matrix":[1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     }
     
 }
-DigiLights.prototype = {  
+Dlite.prototype = {  
     viewer: {
         canvas: null,
         width: 0,
@@ -238,7 +271,7 @@ DigiLights.prototype = {
                        };
                        
             })();*/
-        this.setConfiguration(elem);
+        this._setConfiguration(elem);
         //setup the svg canvas
         if(v.canvas === null){
             o = this.setupViewer(this.ref);
@@ -247,12 +280,13 @@ DigiLights.prototype = {
             v.height = o.h;
         }
     },
-    setConfiguration: function(ref){
+    
+    _setConfiguration: function(ref){
         var SIZE = 5,
             COLOR = "#f00",
             BGCOLOR = "#000",
             BGDISPLAY = true,
-            ALIGN = DigiLights.align.HORIZONTAL,
+            ALIGN = Dlite.align.HORIZONTAL,
             refElement = ref;
              /* setting up configuration */ 
             this.setReference(refElement)
@@ -262,11 +296,14 @@ DigiLights.prototype = {
             this.showBackground(BGDISPLAY);
             this.setAlignment(ALIGN);
     },
-    setText: function(text){
-        if(typeof text !== "undefined" || typeof text === "string" ){
-            this.text = text;
+    
+    setContent: function(content){
+        console.log(content);
+        var toString = Object.prototype.toString;
+        if(typeof content !== "undefined" || typeof content === "string" || typeof content === "number" || toString.call(content) === "[object Array]" ){
+            this.text = content;
         }else{
-            throw Error("setText: Value is not a string");
+            throw Error("setContent: content is invalid");
         }
         return this;
     },
@@ -289,6 +326,7 @@ DigiLights.prototype = {
        }
        return this;
     },
+    
     setReference: function(ref){
         if(typeof ref !== "undefined" ){
             this.ref = ref;
@@ -299,13 +337,14 @@ DigiLights.prototype = {
     },
     
     setAlignment: function(alignment){
-        if(alignment === DigiLights.align.HORIZONTAL || alignment === DigiLights.align.VERTICAL){
+        if(alignment === Dlite.align.HORIZONTAL || alignment === Dlite.align.VERTICAL){
             this.align = alignment;
         }else{
             throw Error("setAlignment: Invalid alignment value");
         }
         return this;
     },
+    
     setBackgroundColor: function(colors){
         var toString = Object.prototype.toString;
        if(typeof colors !== "undefined" && (typeof colors === "string" || toString.call(colors) === "[object Array]")){
@@ -315,11 +354,13 @@ DigiLights.prototype = {
        }
        return this;
     },
+    
     showBackground: function(state){
         this.showBg = state === false ? false : true;
         return this;
     },
-    on: function(){
+    
+    show: function(){
         var args = arguments,
             delay = 0, //the delay in millisecs
             interval = 0, //the interval in millisecs
@@ -327,118 +368,140 @@ DigiLights.prototype = {
             counter = 0,
             w = window,
             interv = null,
-            that = this;
+            that = this,
+            action = function(callback){
+                interv = w.setInterval(function(){ 
+                    if(counter < duration || duration === null){                            
+                        callback(that); 
+                        that._renderContent(that.text);
+                        if(duration !== null){
+                            counter+=1;
+                        }
+                    }else{
+                        if(interv !== null){
+                            w.clearInterval(interv);
+                        }
+                    }
+                }, interval);
+            };
             
         if(args.length > 0){
             if(typeof args[0] ==="number"){
-                delay = args[0];
+                delay = args[0]; //start
             }
             if(typeof args[1] ==="number"){
-                interval = args[0];
+                interval = args[1]; //interval in millisecs
             }
             if(typeof args[2] ==="number"){
-                duration = args[0];
+                duration = args[2];
             }
             if(typeof args[3] === "function"){
-                w.setTimeout(function(){
-                   interv = w.setInterval(function(){ 
-                        if(counter < duration || duration === null){                            
-                            args[3](); 
-                            that.renderText(that.text);
-                            if(duration !== null){
-                                counter+=1;
-                            }
-                        }else{
-                            if(interv !== null){
-                                w.clearInterval(interv);
-                            }
-                        }
-                    }, interval);
-                },delay);
+               w.setTimeout(function(){ action(args[3]);},delay);
             }
         }else{
-            this.renderText(this.text);
+            this._renderContent(this.text);
         }
-    },
-    renderText:function(text){
-        var that = this,
-        nxtPos = null,
-        blank = that.align === DigiLights.align.HORIZONTAL? "blnkV" : "blnkH",
-        blankObject = this.getCharMatrix(blank);
-        this.getCharGroupMatrix(text, function(c, co, i){
-            nxtPos = that.drawMatrix({
-                color:that.color,
-                container: that.viewer.canvas,
-                data: co.matrix,
-                x_size: co.x,
-                y_size: co.y,
-                position: nxtPos,
-                index: i,
-                text: c,
-                radius: that.size,
-                align: that.align
-            });
-        //draw blank line
-            nxtPos = that.drawMatrix({
-                color: that.color,
-                container: that.viewer.canvas,
-                data: blankObject.matrix,
-                x_size: blankObject.x,
-                y_size: blankObject.y,
-                position: nxtPos,
-                index: blank+i,
-                text: blank,
-                radius: that.size,
-                align: that.align
-            });
-        });
     },
     
-    drawMatrix:function(args){
-    var x_size = args.x_size,
-        y_size = args.y_size,
-        ref = args.container,
-        align = args.align,
-        cx = 0,
-        cy = 10,
-        q = this.showBg,
-        INC = args.radius * 2,
-        RADIUS = args.radius,
-        SPACE = args.radius / 2,
-        g_width = 0,
-        g_height = 0,
-        G = "grp",
-        pos = args.position === null? {x:0,y:0} : args.position,
-        group = null;
-        group = ref.select("#"+G+args.index);
-        
-        if(group[0][0] === null){
-            group = ref.append("g")
-            .attr("id",G+args.index)
-            .attr("transform","translate("+pos.x+","+pos.y+")"); 
-        }  
-        group = group.selectAll("circle")
-            .data(args.data)
-        
-        //new
-        group.enter().append("circle")
-            .attr("cx",function(d, i){ if(i%x_size === 0){ if(g_width === 0 && align === DigiLights.align.HORIZONTAL){g_width = cx;} cx = 0; } cx += (INC + SPACE); return cx;})
-            .attr("cy",function(d, i){ if(i%x_size === 0){ cy += (INC + SPACE); } if(align === DigiLights.align.VERTICAL){ g_height = cy;} return cy; })
-            .attr("stroke", function(d){if(q || d === 1){ return args.color; }else{return '#000';}})
-            .attr("fill", function(d){return d === 1 ? args.color :'none'})
-            .attr("r", RADIUS)
-        //update
-        
-        group.attr("stroke",function(d){if(q || d === 1){ return args.color; }else{return '#000';}})
-            .attr("fill",function(d){return d === 1 ? args.color :"none"});
-        
-        //remove
-        group.exit().remove();
-        //return new position coordinates for the next drawing
-        return {
-            x:pos.x + g_width,
-            y:pos.y + g_height
+     _getFormattedContent: function(content){
+        var toString  = Object.prototype.toString,
+            rContent = null;
+        if(typeof content === "string"){
+            rContent = content.split("");
+        }else if (typeof content === "number"){
+            rContent = String(content);
+            if(rContent !== null || typeof rContent !== "undefined"){
+                rContent = rContent.split("");
+            }
+        }else if (toString.call(content) === "[object Array]"){
+            rContent = content;
         }
+        //add spaces
+        return rContent;
+    },
+    
+    _renderContent: function(content){
+        var fContent = null,
+            that = this,
+            nextPosition = null;
+        fContent = this._getFormattedContent(content);
+        if(fContent !== null){
+           this._getArrayMatrix(fContent, 
+               function(content, contentMatrix, index ){
+                   console.log(content);
+                   var config = {
+                       color: that.color,
+                       index: index,
+                       text: content,
+                       x_size: contentMatrix.x,
+                       y_size: contentMatrix.y,
+                       container: that.viewer.canvas,
+                       align: that.align,
+                       radius: that.size,
+                       position: nextPosition,
+                       data: contentMatrix.matrix
+                   }
+                   nextPosition = that._drawSVG(config);
+                });
+        }
+        
+    },
+    
+     //returns the character object containing the matrix
+    _getMatrix: function(character){
+        return Dlite.characterMatrix[character];
+    },
+    _getArrayMatrix: function(contentArray, callback){
+        for(var i = 0; i < contentArray.length; i+=1){
+                callback(contentArray[i], this._getMatrix(contentArray[i]), i);
+        }
+    },
+    
+    _drawSVG:function(args){
+        var x_size = args.x_size,
+            y_size = args.y_size,
+            ref = args.container,
+            align = args.align,
+            cx = 0,
+            cy = 10,
+            q = this.showBg,
+            INC = args.radius * 2,
+            RADIUS = args.radius,
+            SPACE = args.radius / 2,
+            g_width = 0,
+            g_height = 0,
+            G = "grp",
+            pos = args.position === null? {x:0,y:0} : args.position,
+            group = null;
+            group = ref.select("#"+G+args.index);
+            
+            if(group[0][0] === null){
+                group = ref.append("g")
+                .attr("id",G+args.index)
+                .attr("transform","translate("+pos.x+","+pos.y+")"); 
+            }  
+            group = group.selectAll("circle")
+                .data(args.data)
+            
+            //new
+            group.enter().append("circle")
+                .attr("cx",function(d, i){ if(i%x_size === 0){ if(g_width === 0 && align === Dlite.align.HORIZONTAL){g_width = cx;} cx = 0; } cx += (INC + SPACE); return cx;})
+                .attr("cy",function(d, i){ if(i%x_size === 0){ cy += (INC + SPACE); } if(align === Dlite.align.VERTICAL){ g_height = cy;} return cy; })
+                .attr("stroke", function(d){if(q || d === 1){ return args.color; }else{return '#000';}})
+                .attr("fill", function(d){return d === 1 ? args.color :'none'})
+                .attr("r", RADIUS)
+            //update
+            
+            group.attr("stroke",function(d){if(q || d === 1){ return args.color; }else{return '#000';}})
+                .attr("fill",function(d){return d === 1 ? args.color :"none"});
+            
+            //remove
+            group.exit().remove();
+            //return new position coordinates for the next drawing
+            return {
+                x:pos.x + g_width,
+                y:pos.y + g_height
+            }
     },
     
     setupViewer: function(container){
@@ -457,24 +520,5 @@ DigiLights.prototype = {
             w:canvas_width,
             h:canvas_height
         };
-    },
-    //returns the character object containing the matrix
-    getCharMatrix: function(char){
-        return DigiLights.characterMatrix[char];
-    },
-    
-    getCharGroupMatrix:function(charString, callback){
-        var group = charString.split(""),
-        charMatrixSet = [],
-        charObject = null,
-        that = this;     
-        group.forEach(function(char, index){
-            charObject = that.getCharMatrix(char);
-            if(typeof callback === "function"){
-                callback(char,charObject,index);
-            }
-            charMatrixSet.push(charObject.matrix);
-        });
-        return group;
     }
 };
