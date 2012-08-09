@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta http-equiv="X-UA-Compatible" content="IE-Edge" />
+		
+		<style type="text/css">
+			body{
+				background-color:#000;
+			}
+            #wtimer{
+                background-color:#000;
+                width:800px;
+                height:800px;
+            }
+		</style>
+		
+	</head>
+	<body>
+    <div id="wtimer"></div>
+    <script src="d3/d3.js"></script>
+    <script src="dlite.js" type="text/javascript"></script>
+		<script type="text/javascript">
+            function generateRandomArrays(val){
+                var x,
+                    randArry = [];
+                for(x = 0; x < val; x++){
+                    randArry.push(Math.floor((Math.random()*100) + 1))
+                }
+                return randArry;
+            }
+            var waves = Dlite.waveforms.domain(1, 100),
+                defA = generateRandomArrays(50);
+            
+            var d = Dlite("wtimer");
+                d.setContent(waves(defA))
+                    .setSize(5)
+                    .setColor("#f00")
+                    .setAlignment(Dlite.align.HORIZONTAL)
+                    .showBackground(false)
+                    .show(null, 150, null, function(){
+                            var arr = generateRandomArrays(50);
+                            d.setContent(waves(arr));
+                    });
+                       
+		</script>
+	</body>
+</html> 
