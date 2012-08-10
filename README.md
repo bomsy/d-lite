@@ -19,9 +19,8 @@ Samples of what can be done
 * _setAlignment(alignment)_:
 * _setBackground(state)_:
 * _show(delay, interval, duration, callback)_:
-
-#### Dlite.waveforms
-* _domain(lowerlimit, upperlimit)_:
+* _Dlite.waveforms_:
+    * _domain(lowerlimit, upperlimit)_:
 
 ### properties
 * _version_:
