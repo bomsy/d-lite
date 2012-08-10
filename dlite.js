@@ -398,16 +398,25 @@ Dlite.prototype = {
     },
     
     _addSpace: function(ommit, character, index, callback){
-        var space = "_s";
-        if(character.indexOf(ommit) === -1){
-            callback(space, this._getMatrix(space),"s"+ index);
+        var space = "_s",
+            ommitFlag = false,
+            i = 0,
+            l = ommit.length;
+        for(; i<l; i+=1){
+            if(character.indexOf(ommit[i]) === -1){
+               ommitFlag = true;
+               break;
+            }
         }
+        if(ommitFlag){
+            callback(space, this._getMatrix(space),"s"+ index);
+        }   
     },
     
     _getArrayMatrix: function(contentArray, callback){
         for(var i = 0; i < contentArray.length; i+=1){
             callback(contentArray[i], this._getMatrix(contentArray[i]), i);
-            this._addSpace("$", contentArray[i], i, callback);
+            this._addSpace(["$"], contentArray[i], i, callback);
         }
     },
       
