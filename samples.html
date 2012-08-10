@@ -5,18 +5,28 @@
 		
 		<style type="text/css">
 			body{
-				background-color:#000;
+				background-color:#fff;
 			}
-            #wtimer{
-                background-color:#000;
+            #waves{
+                background-color:#fff;
                 width:800px;
-                height:800px;
+                height:300px;
+            }
+            #timer{
+                background-color:#fff;
+                width:800px;
+                height:300px;
+            }
+            div{
+                float:left;
+                clear:both;
             }
 		</style>
 		
 	</head>
 	<body>
-    <div id="wtimer"></div>
+    <div id="waves"></div>
+    <div id="timer"></div>
     <script src="d3/d3.js"></script>
     <script src="dlite.js" type="text/javascript"></script>
 		<script type="text/javascript">
@@ -28,20 +38,33 @@
                 }
                 return randArry;
             }
-            var waves = Dlite.waveforms.domain(1, 100),
-                defA = generateRandomArrays(50);
             
-            var d = Dlite("wtimer");
-                d.setContent(waves(defA))
-                    .setSize(5)
-                    .setColor("#f00")
-                    .setAlignment(Dlite.align.HORIZONTAL)
-                    .showBackground(false)
-                    .show(null, 150, null, function(){
-                            var arr = generateRandomArrays(50);
-                            d.setContent(waves(arr));
-                    });
+            var waves = Dlite.waveforms.domain(1, 100),
+                defA = generateRandomArrays(50),
+                today = new Date();
+            
+           Dlite("waves")
+                .setContent(waves(defA))
+                .setSize(5)
+                .setColor("#f00")
+                .setAlignment(Dlite.align.HORIZONTAL)
+                .showBackground(Dlite.background.SHOW)
+                .show(null, 150, null, function(self){
+                        var arr = generateRandomArrays(50);
+                        self.setContent(waves(arr));
+                });
                        
+           Dlite("timer")
+                .setContent(today.getHours()+":"+today.getMinutes()+":"+today.getSeconds())
+                .setSize(5)
+                .setColor("#00f")
+                .setAlignment(Dlite.align.HORIZONTAL)
+                .showBackground(Dlite.background.SHOW)
+                .show(null, 1000, null,function(self){
+                    var s = new Date();
+                    self.setContent(s.getHours()+":"+s.getMinutes()+":"+s.getSeconds());
+                });
+                
 		</script>
 	</body>
 </html> 
