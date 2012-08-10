@@ -1,18 +1,32 @@
-# Dlite
+# Dlite.js
 
-A small js library that simulates digital lighting.
+A small js library that simulates digital lighting. Dependent on d3.js library. 
 
 ## Sample Demos
 
-Here are sample demos on using dlite.js
+Samples of what can be done 
 
-## Sample Code
+## Setup
+
+## Code
 
 ## Dlite
 
-### Methods
+### methods
+* _setContent(string/numbers/array)_:
+* _setSize(size)_:
+* _setColor(color)_:
+* _setAlignment(alignment)_:
+* _setBackground(state)_:
+* _show(delay, interval, duration, callback)_:
 
-### Properties
+#### Dlite.waveforms
+* _domain(lowerlimit, upperlimit)_:
+
+### properties
+* _version_:
+* _align_:
+* _background_:
 
 ## Dependencies
 
