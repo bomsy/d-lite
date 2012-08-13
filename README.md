@@ -1,6 +1,6 @@
 # Dlite.js
 
-A small js library that simulates digital lighting. Dependent on d3.js library. 
+A small (playaround) js library that simulates digital lighting. Dependent on d3.js library. 
 
 ## Compatibility
 
@@ -23,10 +23,15 @@ Samples of what can be done
 * _show(delay, interval, duration, callback)_:
 * _Dlite.waveforms.domain(lowerlimit, upperlimit)_:
 
-### properties
-* _version_:
-* _align_:
+### properties & constants
+* _version_: Specifies the current version.
+* _align_:  
+    * HORIZONTAL:
+    * VERTICAL:
 * _background_:
+    *SHOW:
+    *PARTIAL:
+    *NONE:
 
 ## Dependencies
 This library is dependent on the [D3 Visualization library](http://mbostock.github.com/d3/).
