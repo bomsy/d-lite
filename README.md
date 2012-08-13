@@ -16,12 +16,19 @@ Samples of what can be done
 
 ### methods
 * __setContent(string/numbers/array)__:
+
 * __setSize(size)__ :
+
 * __setColor(color)__ :
+
 * __setAlignment(alignment)__ : Sets the alignment of the charaters in the content. The constants accepted by the alignment are either _Dlite.align.HORIZONTAL_ or _Dlite.align.VERTICAL_ .
+
 * __setBackground(state)__ : Sets the state of the background. The 3 possible states are _Dlite.background.SHOW_ / _Dlite.background.PARTIAL_ / _Dlite.background.NONE_ .
-* __show(delay, interval, duration, callback)__ : Starts the lighting. if no arguments is passed, it runs once (to display its currrent content). It also accepts 4 arguments  in which situation it runs according to the specifications of the paramenters.
+
+* __show(delay, interval, duration, callback)__ : Starts the lighting. if no arguments is passed, it runs once (to display its currrent content). It also accepts 4 arguments  in which situation it runs according to the parameters specifications.
+
 * __Dlite.waveforms.domain(lowerlimit, upperlimit)__ :
+
 
 ### properties & constants
 * __version__ : Specifies the current version.
