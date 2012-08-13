@@ -15,16 +15,18 @@ Samples of what can be done
 ## Dlite
 
 ### methods
-* _setContent(string/numbers/array)_:
-* _setSize(size)_:
-* _setColor(color)_:
-* _setAlignment(alignment)_: Sets the alignment of the charaters in the content. The constants accepted by the alignment are either Dlite.align.HORIZONTAL or Dlite.align.VERTICAL.
-* _setBackground(state)_: Sets the state of the background. The 3 possible states are Dlite.background.SHOW / Dlite.background.PARTIAL/ Dlite.background.NONE.
-* _show(delay, interval, duration, callback)_: Starts the lighting. if no arguments is passed, it runs once (to display its currrent content). It also accepts 4 arguments  in which situation it runs according to the spcifications of the paramenters.
-* _Dlite.waveforms.domain(lowerlimit, upperlimit)_:
+* __setContent(string/numbers/array)__:
+* __setSize(size)__ :
+* __setColor(color)__ :
+* __setAlignment(alignment)__ : Sets the alignment of the charaters in the content. The constants accepted by the alignment are either Dlite.align.HORIZONTAL or Dlite.align.VERTICAL.
+* __setBackground(state)__ : Sets the state of the background. The 3 possible states are Dlite.background.SHOW / Dlite.background.PARTIAL/ Dlite.background.NONE.
+* __show(delay, interval, duration, callback)__ : Starts the lighting. if no arguments is passed, it runs once (to display its currrent content). It also accepts 4 arguments  in which situation it runs according to the spcifications of the paramenters.
+* __Dlite.waveforms.domain(lowerlimit, upperlimit)__ :
 
 ### properties & constants
-* _version_: Specifies the current version.
+* __version__ : Specifies the current version.
+
+
 ## Dependencies
 This library is dependent on the [D3 Visualization library](http://mbostock.github.com/d3/).
 ## Authors
