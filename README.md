@@ -18,21 +18,13 @@ Samples of what can be done
 * _setContent(string/numbers/array)_:
 * _setSize(size)_:
 * _setColor(color)_:
-* _setAlignment(alignment)_:
-* _setBackground(state)_:
-* _show(delay, interval, duration, callback)_:
+* _setAlignment(alignment)_: Sets the alignment of the charaters in the content. The constants accepted by the alignment are either Dlite.align.HORIZONTAL or Dlite.align.VERTICAL.
+* _setBackground(state)_: Sets the state of the background. The 3 possible states are Dlite.background.SHOW / Dlite.background.PARTIAL/ Dlite.background.NONE.
+* _show(delay, interval, duration, callback)_: Starts the lighting. if no arguments is passed, it runs once (to display its currrent content). It also accepts 4 arguments  in which situation it runs according to the spcifications of the paramenters.
 * _Dlite.waveforms.domain(lowerlimit, upperlimit)_:
 
 ### properties & constants
 * _version_: Specifies the current version.
-* _align_:  
-    * HORIZONTAL:
-    * VERTICAL:
-* _background_:
-    *SHOW:
-    *PARTIAL:
-    *NONE:
-
 ## Dependencies
 This library is dependent on the [D3 Visualization library](http://mbostock.github.com/d3/).
 ## Authors
