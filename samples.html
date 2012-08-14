@@ -67,9 +67,9 @@
                 .setColor("#f00")
                 .setAlignment(Dlite.align.HORIZONTAL)
                 .showBackground(Dlite.background.SHOW)
-                .show(null, 1000, null, function($){
+                .show(null, 1000, null, function(_){
                         var arr = generateRandomArrays(50);
-                        $.setContent(waves(arr));
+                        _.setContent(waves(arr));
                 });
                        
            Dlite("timer")
@@ -77,10 +77,10 @@
                 .setSize(6)
                 .setColor("#00f")
                 .setAlignment(Dlite.align.HORIZONTAL)
-                .showBackground(Dlite.background.NONE)
-                .show(null, 1000, null,function($){
+                .showBackground(Dlite.background.PARTIAL)
+                .show(null, 1000, null,function(_){
                     var s = new Date();
-                    $.setContent(s.getHours()+":"+s.getMinutes()+":"+s.getSeconds());
+                    _.setContent(s.getHours()+":"+s.getMinutes()+":"+s.getSeconds());
                 });
                 
             Dlite("alpha")
