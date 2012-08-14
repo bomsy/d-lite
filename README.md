@@ -4,9 +4,17 @@ A small (playaround) js library that simulates digital lighting. Dependent on d3
 
 ## Compatibility
 
-## Sample Demos
+## Getting Started
 
-Samples Output 
+Creating a simple lighting
+
+    Dlite("foo")
+        .setContent("HELLOWORLD")
+        .setSize(5)
+        .setAlignment(Dlite.align.HORIZONTAL)
+        .setBackground(Dlite.background.SHOW)
+        .show()
+
 
 ## Setup
 
