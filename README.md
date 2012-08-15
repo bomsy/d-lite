@@ -4,21 +4,29 @@ A small (playaround) js library that simulates digital lighting. Dependent on d3
 
 ## Compatibility
 
+Compatible with ie9+, chrome, firefox, safari, opera
+
+## Dependencies
+
+This library is dependent on the [D3 Visualization library](http://mbostock.github.com/d3/).
+
+## Setup
+
+Download
+
 ## Getting Started
 
-Creating a simple lighting
+Creating a simple lighting to display "Hello World"
 
     Dlite("foo")
-        .setContent("HELLOWORLD")
+        .setContent("HELLO WORLD")
         .setSize(5)
+        .setColor("#f00")
         .setAlignment(Dlite.align.HORIZONTAL)
         .setBackground(Dlite.background.SHOW)
         .show()
 
-
-## Setup
-
-## Code Examples
+See more [code examples](http://bomsy.github.com/dLite/)
 
 ## Dlite
 
@@ -41,11 +49,10 @@ Creating a simple lighting
 ### properties & constants
 * __version__ : Specifies the current version.
 
-
-## Dependencies
-This library is dependent on the [D3 Visualization library](http://mbostock.github.com/d3/).
 ## Authors
+
 This library is developed by Hubert B Manilla
+
 ## Licence
 
 Copyright (c) 2012 [Hubert Boma Manilla](http://bomsy-webcode.blogspot.co.uk/)
