@@ -1009,6 +1009,20 @@ Dlite.characterMatrix = {
             0, 0, 0, 0, 0
         ]
     },
+    "!": {
+        "x": 5,
+        "y": 7,
+        "matrix": [
+            0, 0, 1, 0, 0,
+            0, 0, 1, 0, 0,
+            0, 0, 1, 0, 0,
+            0, 0, 1, 0, 0,
+            0, 0, 1, 0, 0,
+            0, 0, 0, 0, 0,
+            0, 0, 1, 0, 0
+        ]
+    },
+    
     // Control matrices
     "_line": {
         "x": 1,
@@ -1087,7 +1101,7 @@ Dlite.characterMatrix = {
     }
     
 }
-Dlite.prototype = (function(){
+Dlite.prototype = (function(win, doc){
      
      //sets the default configuration
      function setDefaultConfiguration(currentInstance){
@@ -1360,4 +1374,4 @@ Dlite.prototype = (function(){
     } 
  }
  
-})();
+})(window, document);
