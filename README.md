@@ -51,7 +51,7 @@ See more [code examples](http://bomsy.github.com/dLite/)
 
 ## Authors
 
-This library is developed by Hubert B Manilla
+This library is developed by [Hubert Boma Manilla](http://bomsy-webcode.blogspot.co.uk/)
 
 ## Licence
 
