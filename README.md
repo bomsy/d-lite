@@ -26,7 +26,7 @@ Creating a simple lighting to display "Hello World"
         .setBackground(Dlite.background.SHOW)
         .show()
 
-See more [code examples](http://bomsy.github.com/dLite/)
+See more [Code Examples](http://bomsy.github.com/dLite/)
 
 ## Dlite
 
