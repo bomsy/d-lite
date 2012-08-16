@@ -15,13 +15,6 @@ Compatible with ie9+, chrome, firefox, safari, opera
 
 This library is dependent on the [D3 Visualization library](http://mbostock.github.com/d3/).
 
-## Setup
-
-Download project from [http://bomsy.github.com/dLite/](http://bomsy.github.com/dLite/).
-
-Add script tag 
-    <script src="{your path}/dlite.min.js"></script>
-
 ## Getting Started
 
 Creating a simple lighting to display "Hello World"
