@@ -30,7 +30,8 @@
       <section>
         <h1>Dlite.js</h1>
 
-<p>A small (playaround) js library that simulates digital lighting. Dependent on d3.js library. </p>
+<p>A small js library that simulates digital lighting. Dependent on <a href="http://mbostock.github.com/d3/">d3.js</a> library.
+The character library currently contains all uppercase, lowercase characters, digits and some special characters such as *, -, _, ?, ., /, =, +, !.</p>
 
 <h2>Compatibility</h2>
 
@@ -39,10 +40,6 @@
 <h2>Dependencies</h2>
 
 <p>This library is dependent on the <a href="http://mbostock.github.com/d3/">D3 Visualization library</a>.</p>
-
-<h2>Setup</h2>
-
-<p>Download</p>
 
 <h2>Getting Started</h2>
 
@@ -57,28 +54,36 @@
     .show()
 </code></pre>
 
-<p>See more <a href="http://bomsy.github.com/dLite/">code examples</a></p>
+<p>See more in the <a href="http://bomsy.github.com/dLite/examples.html">Code examples</a></p>
 
 <h2>Dlite</h2>
 
 <h3>methods</h3>
 
 <ul>
-<li><p><strong>setContent([string]/[numbers]/[array])</strong> : Sets the content to be displayed. Content can be a string, series of digits, an array (direct or passed through the <em>Dlite.waveform.domain</em> generated function)</p></li>
-<li><p><strong>setSize(size)</strong> : Sets the size of each lighting element. It takes a digit.</p></li>
+<li><p><strong>setContent([string]/[numbers]/[array])</strong> : Sets the content to be displayed. Content can be a string, series of digits, an array (basic array or passed through the <em>Dlite.waveform.domain</em> generated function. See <a href="http://bomsy.github.com/dLite/examples.html">code examples</a>)</p></li>
+<li><p><strong>setSize(size)</strong> : Sets the size of each lighting element. It takes a number as parameter (Note: no units).</p></li>
 <li><p><strong>setColor(color)</strong> : Sets the color for the lighting. it takes color strings, HEX or RGB values.</p></li>
 <li><p><strong>setAlignment(alignment)</strong> : Sets the alignment of the charaters in the content. The constants accepted by the alignment are either <em>Dlite.align.HORIZONTAL</em> or <em>Dlite.align.VERTICAL</em> .</p></li>
-<li><p><strong>setBackground(state)</strong> : Sets the state of the background. The 3 possible states are <em>Dlite.background.SHOW</em> / <em>Dlite.background.PARTIAL</em> / <em>Dlite.background.NONE</em> .</p></li>
-<li><p><strong>show(delay, interval, duration, callback)</strong> : Starts the lighting. if no arguments is passed, it runs once (to display its currrent content). It also accepts 4 arguments  in which situation it runs according to the parameters specifications.</p></li>
-<li><p><strong>Dlite.waveforms.domain(lowerlimit, upperlimit)</strong> : Allows for generating waveforms using random data. it takes in integer values for the lower and upper limits of the domain, then returns a function which is used to scale the waveform array. See code examples above for more details.</p></li>
-</ul><h3>properties &amp; constants</h3>
+<li><p><strong>setBackground(state)</strong> : Sets the state of the background. The 3 possible states are <em>Dlite.background.SHOW</em> , <em>Dlite.background.PARTIAL</em> or <em>Dlite.background.NONE</em> .</p></li>
+<li><p><strong>show(delay, interval, duration, callback)</strong> : Starts the lighting. if no arguments is passed, it runs once (to display its currrent content). It also accepts 4 arguments  in which situation it runs according to the parameters specifications. See <a href="http://bomsy.github.com/dLite/examples.html">code examples</a></p></li>
+<li><p><strong>Dlite.waveforms.domain(lowerlimit, upperlimit)</strong> : Allows for generating waveforms using random data. it takes in integer values for the lower and upper limits of the domain, then returns a function which is used to scale the waveform array. See <a href="http://bomsy.github.com/dLite/examples.html">code examples</a> above for more details.</p></li>
+</ul><h3>properties</h3>
 
 <ul>
 <li>
 <strong>version</strong> : Specifies the current version.</li>
+</ul><h3>constants</h3>
+
+<ul>
+<li><p><strong>Dlite.align.HORIZONTAL</strong> : When used, elements will be aligned horizontally.</p></li>
+<li><p><strong>Dlite.align.VERTICAL</strong> : When used, elements will be aligned vertically. </p></li>
+<li><p><strong>Dlite.background.SHOW</strong> : When used, the full background will be shown.</p></li>
+<li><p><strong>Dlite.background.PARTIAL</strong> : When used, an outline of background will be shown.</p></li>
+<li><p><strong>Dlite.background.NONE</strong> : When used, no background will be shown.</p></li>
 </ul><h2>Authors</h2>
 
-<p>This library is developed by <a href="http://bomsy-webcode.blogspot.co.uk/">Hubert Boma Manilla</a></p>
+<p>This library is developed by <a href="http://bomsy-webcode.blogspot.co.uk/">Hubert Boma Manilla</a>.</p>
 
 <h2>Licence</h2>
 
@@ -109,6 +114,16 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
       </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
-    
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-34148155-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>
