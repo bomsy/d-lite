@@ -1,36 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>DLite by bomsy</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="DLite : A small digital Lighting simulation library with d3" />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>DLite</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>DLite</h1>
-        <p>A small digital Lighting simulation library with d3</p>
 
-        <p class="view"><a href="https://github.com/bomsy/dLite">View the Project on GitHub <small>bomsy/dLite</small></a></p>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/bomsy/dLite">View on GitHub</a>
 
+          <h1 id="project_title">DLite</h1>
+          <h2 id="project_tagline">A small digital Lighting simulation library with d3</h2>
 
-        <ul>
-          <li><a href="https://github.com/bomsy/dLite/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/bomsy/dLite/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/bomsy/dLite">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/bomsy/dLite/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/bomsy/dLite/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1>Dlite.js</h1>
 
-<p>A small (playaround) js library that simulates digital lighting. Dependent on d3.js library. </p>
+<p>A small js library that simulates digital lighting. Dependent on <a href="http://mbostock.github.com/d3/">d3.js</a> library.
+The character library currently contains all uppercase, lowercase characters, digits and some special characters such as *, -, _, ?, ., /, =, +, !.</p>
 
 <h2>Compatibility</h2>
 
@@ -39,10 +43,6 @@
 <h2>Dependencies</h2>
 
 <p>This library is dependent on the <a href="http://mbostock.github.com/d3/">D3 Visualization library</a>.</p>
-
-<h2>Setup</h2>
-
-<p>Download</p>
 
 <h2>Getting Started</h2>
 
@@ -57,28 +57,36 @@
     .show()
 </code></pre>
 
-<p>See more <a href="http://bomsy.github.com/dLite/">code examples</a></p>
+<p>See more in the <a href="http://bomsy.github.com/dLite/examples.html">Code examples</a></p>
 
 <h2>Dlite</h2>
 
 <h3>methods</h3>
 
 <ul>
-<li><p><strong>setContent([string]/[numbers]/[array])</strong> : Sets the content to be displayed. Content can be a string, series of digits, an array (direct or passed through the <em>Dlite.waveform.domain</em> generated function)</p></li>
-<li><p><strong>setSize(size)</strong> : Sets the size of each lighting element. It takes a digit.</p></li>
+<li><p><strong>setContent([string]/[numbers]/[array])</strong> : Sets the content to be displayed. Content can be a string, series of digits, an array (basic array or passed through the <em>Dlite.waveform.domain</em> generated function. See <a href="http://bomsy.github.com/dLite/examples.html">code examples</a>)</p></li>
+<li><p><strong>setSize(size)</strong> : Sets the size of each lighting element. It takes a number as parameter (Note: no units).</p></li>
 <li><p><strong>setColor(color)</strong> : Sets the color for the lighting. it takes color strings, HEX or RGB values.</p></li>
 <li><p><strong>setAlignment(alignment)</strong> : Sets the alignment of the charaters in the content. The constants accepted by the alignment are either <em>Dlite.align.HORIZONTAL</em> or <em>Dlite.align.VERTICAL</em> .</p></li>
-<li><p><strong>setBackground(state)</strong> : Sets the state of the background. The 3 possible states are <em>Dlite.background.SHOW</em> / <em>Dlite.background.PARTIAL</em> / <em>Dlite.background.NONE</em> .</p></li>
-<li><p><strong>show(delay, interval, duration, callback)</strong> : Starts the lighting. if no arguments is passed, it runs once (to display its currrent content). It also accepts 4 arguments  in which situation it runs according to the parameters specifications.</p></li>
-<li><p><strong>Dlite.waveforms.domain(lowerlimit, upperlimit)</strong> : Allows for generating waveforms using random data. it takes in integer values for the lower and upper limits of the domain, then returns a function which is used to scale the waveform array. See code examples above for more details.</p></li>
-</ul><h3>properties &amp; constants</h3>
+<li><p><strong>setBackground(state)</strong> : Sets the state of the background. The 3 possible states are <em>Dlite.background.SHOW</em> , <em>Dlite.background.PARTIAL</em> or <em>Dlite.background.NONE</em> .</p></li>
+<li><p><strong>show(delay, interval, duration, callback)</strong> : Starts the lighting. if no arguments is passed, it runs once (to display its currrent content). It also accepts 4 arguments  in which situation it runs according to the parameters specifications. See <a href="http://bomsy.github.com/dLite/examples.html">code examples</a></p></li>
+<li><p><strong>Dlite.waveforms.domain(lowerlimit, upperlimit)</strong> : Allows for generating waveforms using random data. it takes in integer values for the lower and upper limits of the domain, then returns a function which is used to scale the waveform array. See <a href="http://bomsy.github.com/dLite/examples.html">code examples</a> above for more details.</p></li>
+</ul><h3>properties</h3>
 
 <ul>
 <li>
 <strong>version</strong> : Specifies the current version.</li>
+</ul><h3>constants</h3>
+
+<ul>
+<li><p><strong>Dlite.align.HORIZONTAL</strong> : When used, elements will be aligned horizontally.</p></li>
+<li><p><strong>Dlite.align.VERTICAL</strong> : When used, elements will be aligned vertically. </p></li>
+<li><p><strong>Dlite.background.SHOW</strong> : When used, the full background will be shown.</p></li>
+<li><p><strong>Dlite.background.PARTIAL</strong> : When used, an outline of background will be shown.</p></li>
+<li><p><strong>Dlite.background.NONE</strong> : When used, no background will be shown.</p></li>
 </ul><h2>Authors</h2>
 
-<p>This library is developed by <a href="http://bomsy-webcode.blogspot.co.uk/">Hubert Boma Manilla</a></p>
+<p>This library is developed by <a href="http://bomsy-webcode.blogspot.co.uk/">Hubert Boma Manilla</a>.</p>
 
 <h2>Licence</h2>
 
@@ -103,12 +111,27 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/bomsy">bomsy</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">DLite maintained by <a href="https://github.com/bomsy">bomsy</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-34148155-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
   </body>
 </html>
