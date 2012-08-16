@@ -1116,8 +1116,8 @@ Dlite.prototype = (function(win, doc){
      
      //sets up the SVG container to contain every element
      function setupSVGViewer(container){
-        var cObject = document.querySelector(container),
-            style = window.getComputedStyle(cObject, null),
+        var cObject = doc.querySelector(container),
+            style = win.getComputedStyle(cObject, null),
             canvas_width = style.getPropertyValue("width"),
             canvas_height = style.getPropertyValue("height"),
             svg;
@@ -1333,12 +1333,11 @@ Dlite.prototype = (function(win, doc){
             interval = 0, //the interval in millisecs
             duration = null,
             counter = 0,
-            w = window,
             interv = null,
             that = this,
             action;
         action = function(callback){
-            interv = w.setInterval(function(){ 
+            interv = win.setInterval(function(){ 
                 if(counter < duration || duration === null){                            
                     callback(that); 
                     renderContent(that, that.content);
@@ -1348,7 +1347,7 @@ Dlite.prototype = (function(win, doc){
                     }
                 }else{
                     if(interv !== null){
-                        w.clearInterval(interv);
+                        win.clearInterval(interv);
                     }
                 }
             }, interval);
@@ -1365,7 +1364,7 @@ Dlite.prototype = (function(win, doc){
                 duration = args[2];
             }
             if(typeof args[3] === "function"){
-               w.setTimeout(function(){ action(args[3]); }, delay);
+               win.setTimeout(function(){ action(args[3]); }, delay);
             }
         }else{
             renderContent(this, this.content);
