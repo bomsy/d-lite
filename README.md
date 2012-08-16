@@ -4,7 +4,8 @@ A small js library that simulates digital lighting. Dependent on [d3.js](http://
 
 ## Description
 
-This is a playaround around project, and would love those interested to join, add and suggest ideas. Thanks
+This is a playaround around project, and would love those interested to join, add and suggest ideas. Thanks.
+See some [ideas
 
 ## Compatibility
 
@@ -18,7 +19,7 @@ This library is dependent on the [D3 Visualization library](http://mbostock.gith
 
 Download project from [http://bomsy.github.com/dLite/](http://bomsy.github.com/dLite/).
 
-Add script tag "<script src='[your path]/dlite.min.js'></script>" to page.
+Add script tag _<script src="{your path}/dlite.min.js"></script>_ to page.
 
 ## Getting Started
 
@@ -32,7 +33,7 @@ Creating a simple lighting to display "Hello World"
         .setBackground(Dlite.background.SHOW)
         .show()
 
-See more [Code Examples](http://bomsy.github.com/dLite/examples.html)
+See more in the [code examples](http://bomsy.github.com/dLite/examples.html)
 
 ## Dlite
 
