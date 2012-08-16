@@ -19,7 +19,8 @@ This library is dependent on the [D3 Visualization library](http://mbostock.gith
 
 Download project from [http://bomsy.github.com/dLite/](http://bomsy.github.com/dLite/).
 
-Add script tag _<script src="{your path}/dlite.min.js"></script>_ to page.
+Add script tag 
+    <script src="{your path}/dlite.min.js"></script>
 
 ## Getting Started
 
