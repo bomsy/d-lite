@@ -1,7 +1,6 @@
 # Dlite.js
 
 A small js library that simulates digital lighting. Dependent on [d3.js](http://mbostock.github.com/d3/) library.
-
 The character library currently contains all uppercase, lowercase characters, digits and some special characters such as *, -, _, ?, ., /, =, +, !.
 
 ## Compatibility
