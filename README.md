@@ -26,7 +26,7 @@ Creating a simple lighting to display "Hello World"
         .setBackground(Dlite.background.SHOW)
         .show()
 
-See more [Code Examples](http://bomsy.github.com/dLite/)
+See more [Code Examples](http://bomsy.github.com/dLite/examples.html)
 
 ## Dlite
 
@@ -43,7 +43,7 @@ See more [Code Examples](http://bomsy.github.com/dLite/)
 
 * __show(delay, interval, duration, callback)__ : Starts the lighting. if no arguments is passed, it runs once (to display its currrent content). It also accepts 4 arguments  in which situation it runs according to the parameters specifications.
 
-* __Dlite.waveforms.domain(lowerlimit, upperlimit)__ : Allows for generating waveforms using random data. it takes in integer values for the lower and upper limits of the domain, then returns a function which is used to scale the waveform array. See code examples above for more details.
+* __Dlite.waveforms.domain(lowerlimit, upperlimit)__ : Allows for generating waveforms using random data. it takes in integer values for the lower and upper limits of the domain, then returns a function which is used to scale the waveform array. See [code examples](http://bomsy.github.com/dLite/examples.html) above for more details.
 
 
 ### properties & constants
