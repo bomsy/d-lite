@@ -2,11 +2,6 @@
 
 A small js library that simulates digital lighting. Dependent on [d3.js](http://mbostock.github.com/d3/) library. 
 
-## Description
-
-This is a playaround around project, and would love those interested to join, add and suggest ideas. Thanks.
-See some [ideas
-
 ## Compatibility
 
 Compatible with ie9+, chrome, firefox, safari, opera
