@@ -1,6 +1,10 @@
 # Dlite.js
 
-A small (playaround) js library that simulates digital lighting. Dependent on d3.js library. 
+A small js library that simulates digital lighting. Dependent on [d3.js](http://mbostock.github.com/d3/) library. 
+
+## Description
+
+This is a playaround around project, and would love those interested to join, add and suggest ideas. Thanks
 
 ## Compatibility
 
@@ -12,7 +16,9 @@ This library is dependent on the [D3 Visualization library](http://mbostock.gith
 
 ## Setup
 
-Download
+Download project from [http://bomsy.github.com/dLite/](http://bomsy.github.com/dLite/).
+
+Add script tag "<script src='[your path]/dlite.min.js'></script>" to page.
 
 ## Getting Started
 
@@ -31,6 +37,7 @@ See more [Code Examples](http://bomsy.github.com/dLite/examples.html)
 ## Dlite
 
 ### methods
+
 * __setContent([string]/[numbers]/[array])__ : Sets the content to be displayed. Content can be a string, series of digits, an array (direct or passed through the _Dlite.waveform.domain_ generated function)
 
 * __setSize(size)__ : Sets the size of each lighting element. It takes a digit.
@@ -46,12 +53,25 @@ See more [Code Examples](http://bomsy.github.com/dLite/examples.html)
 * __Dlite.waveforms.domain(lowerlimit, upperlimit)__ : Allows for generating waveforms using random data. it takes in integer values for the lower and upper limits of the domain, then returns a function which is used to scale the waveform array. See [code examples](http://bomsy.github.com/dLite/examples.html) above for more details.
 
 
-### properties & constants
+### properties
+
 * __version__ : Specifies the current version.
+
+### constants
+
+* __Dlite.align.HORIZONTAL__ : When used, elements will be aligned horizontally.
+
+* __Dlite.align.VERTICAL__ : When used, elements will be aligned vertically. 
+
+* __Dlite.background.SHOW__ : When used, the full background will be shown.
+
+* __Dlite.background.PARTIAL__ : When used, an outline of background will be shown.
+
+* __Dlite.background.NONE__ : When used, no background will be shown.
 
 ## Authors
 
-This library is developed by [Hubert Boma Manilla](http://bomsy-webcode.blogspot.co.uk/)
+This library is developed by [Hubert Boma Manilla](http://bomsy-webcode.blogspot.co.uk/).
 
 ## Licence
 
