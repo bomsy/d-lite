@@ -23,13 +23,13 @@ Creating a simple lighting to display "Hello World"
         .setBackground(Dlite.background.SHOW)
         .show()
 
-See more in the [Code examples](http://bomsy.github.com/dLite/examples.html)
+See more in the [Code examples](http://bomsy.github.com/d-lite/examples.html)
 
 ## Dlite
 
 ### methods
 
-* __setContent([string]/[numbers]/[array])__ : Sets the content to be displayed. Content can be a string, series of digits, an array (basic array or passed through the _Dlite.waveform.domain_ generated function. See [code examples](http://bomsy.github.com/dLite/examples.html))
+* __setContent([string]/[numbers]/[array])__ : Sets the content to be displayed. Content can be a string, series of digits, an array (basic array or passed through the _Dlite.waveform.domain_ generated function. See [code examples](http://bomsy.github.com/d-lite/examples.html))
 
 * __setSize(size)__ : Sets the size of each lighting element. It takes a number as parameter (Note: no units).
 
@@ -39,9 +39,9 @@ See more in the [Code examples](http://bomsy.github.com/dLite/examples.html)
 
 * __setBackground(state)__ : Sets the state of the background. The 3 possible states are _Dlite.background.SHOW_ , _Dlite.background.PARTIAL_ or _Dlite.background.NONE_ .
 
-* __show(delay, interval, duration, callback)__ : Starts the lighting. if no arguments is passed, it runs once (to display its currrent content). It also accepts 4 arguments  in which situation it runs according to the parameters specifications. See [code examples](http://bomsy.github.com/dLite/examples.html)
+* __show(delay, interval, duration, callback)__ : Starts the lighting. if no arguments is passed, it runs once (to display its currrent content). It also accepts 4 arguments  in which situation it runs according to the parameters specifications. See [code examples](http://bomsy.github.com/d-lite/examples.html)
 
-* __Dlite.waveforms.domain(lowerlimit, upperlimit)__ : Allows for generating waveforms using random data. it takes in integer values for the lower and upper limits of the domain, then returns a function which is used to scale the waveform array. See [code examples](http://bomsy.github.com/dLite/examples.html) above for more details.
+* __Dlite.waveforms.domain(lowerlimit, upperlimit)__ : Allows for generating waveforms using random data. it takes in integer values for the lower and upper limits of the domain, then returns a function which is used to scale the waveform array. See [code examples](http://bomsy.github.com/d-lite/examples.html) above for more details.
 
 
 ### properties
